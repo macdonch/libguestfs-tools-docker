@@ -21,6 +21,9 @@ podTemplate(
                 container('docker') {
                     // This is where we build the Docker image
 
+                    ls -al
+                    ls -al /build
+
                     app = docker.build("leibniz9999/libguestfs-tools")
 
                 }
