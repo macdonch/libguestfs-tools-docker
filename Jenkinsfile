@@ -16,6 +16,12 @@ podTemplate(
 
             def registryCredential = 'leibniz9999_id'
 
+            stage('Clone repository') {
+                /* repository is defined in the Jenkins pipeline */
+
+                checkout scm
+            }
+
             stage('Build Docker Image') {
                 //container = the container label
                 container('docker') {
@@ -24,7 +30,6 @@ podTemplate(
                         #!/bin/bash
                         pwd
                         ls -al
-                        ls -al /build
                         '''
                     app = docker.build("leibniz9999/libguestfs-tools")
 
